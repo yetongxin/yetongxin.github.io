@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yetx&#39;s Blog</title>
+  
+  <subtitle>Stay Hungry, Stay Foolish</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-08-01T09:26:03.238Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Yetx</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉树创建与遍历</title>
+    <link href="http://yoursite.com/2019/08/01/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%81%8D%E5%8E%86/"/>
+    <id>http://yoursite.com/2019/08/01/二叉树创建与遍历/</id>
+    <published>2019-08-01T09:05:40.000Z</published>
+    <updated>2019-08-01T09:26:03.238Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="节点定义："><a href="#节点定义：" class="headerlink" title="节点定义："></a>节点定义：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class BinNode &#123;</span><br><span class="line">public:</span><br><span class="line">char data;</span><br><span class="line">BinNode* parent;</span><br><span class="line">BinNode* lchild;</span><br><span class="line">BinNode* rchild;</span><br><span class="line">BinNode()&#123; lchild = NULL; rchild = NULL; parent = NULL; &#125;</span><br><span class="line">BinNode(char data2):data(data2) &#123;</span><br><span class="line">lchild = NULL; rchild = NULL; parent = NULL;</span><br><span class="line">&#125;</span><br><span class="line">BinNode(char data2, BinNode* parent2):data(data2) &#123;</span><br><span class="line">lchild = NULL; rchild = NULL; parent = parent2;</span><br><span class="line">&#125;</span><br><span class="line">void insertAsLeft(char data) &#123;</span><br><span class="line">lchild = new BinNode(data,this);</span><br><span class="line">&#125;</span><br><span class="line">void insertAsRight( char data) &#123;</span><br><span class="line">rchild = new BinNode(data,this);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><a id="more"></a><h5 id="树的定义："><a href="#树的定义：" class="headerlink" title="树的定义："></a>树的定义：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class BinTree &#123;</span><br><span class="line">private:</span><br><span class="line">BinNode* root;</span><br><span class="line">string strtree;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">BinTree() &#123;</span><br><span class="line">root = NULL;</span><br><span class="line">&#125;</span><br><span class="line">    BinNode* getRoot() &#123; return root; &#125;//获取根节点</span><br><span class="line">    void creatBTreeBycengci(string arr);//层次遍历产生一颗树，参考层次遍历</span><br><span class="line">    void creatBTreeByString(string str) ;//通过一个字符串创建一棵树，调用creatBTree</span><br><span class="line">    BinNode* creatBTree(int&amp; pos);//通过先序遍历产生一棵树，使用递归</span><br><span class="line">    void preorder(BinNode* T) ;//先序遍历以T为根节点的子树，递归</span><br><span class="line">    void inorder(BinNode* T) ;//中序遍历以T为根节点的子树，递归</span><br><span class="line">    void postorder(BinNode* T) ;//后序遍历以T为根节点的字数，递归</span><br><span class="line"></span><br><span class="line">    void preorderByStack(BinNode* T);//先序遍历以T为根节点的子树，非递归</span><br><span class="line">    void inorderByStack(BinNode* T);//中序遍历以T为根节点的子树，非递归</span><br><span class="line">    void cengciByQueue(BinNode* T);//层次遍历，利用队列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="以下是各种方法的实现"><a href="#以下是各种方法的实现" class="headerlink" title="以下是各种方法的实现:"></a>以下是各种方法的实现:</h5><p>首先是通过一个字符串先序遍历创建一颗树</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void creatBTreeByString(string str) &#123;</span><br><span class="line">int pos = 0;</span><br><span class="line">strtree.assign(str);</span><br><span class="line">root = creatBTree(pos);</span><br><span class="line">&#125;</span><br><span class="line">BinNode* creatBTree(int&amp; pos) &#123;</span><br><span class="line">BinNode* T;</span><br><span class="line">char ch = strtree[pos++];</span><br><span class="line">if (ch == &apos;0&apos;)T = NULL;</span><br><span class="line">else &#123;</span><br><span class="line">T = new BinNode(ch);</span><br><span class="line">T-&gt;lchild = creatBTree(pos);</span><br><span class="line">T-&gt;rchild = creatBTree(pos);</span><br><span class="line">&#125;</span><br><span class="line">return T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>先序遍历、中序遍历、后序遍历的递归版本，此处无传如visit函数，只是访问节点的数据并输出：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void preorder(BinNode* T) &#123;</span><br><span class="line">if (T == NULL)return;</span><br><span class="line">char ch = T-&gt;data;</span><br><span class="line">cout &lt;&lt; ch;</span><br><span class="line">preorder(T-&gt;lchild);</span><br><span class="line">preorder(T-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line">void inorder(BinNode* T) &#123;//中序遍历以T为根节点的子树</span><br><span class="line">if (T == NULL)return;</span><br><span class="line">inorder(T-&gt;lchild);</span><br><span class="line">char ch = T-&gt;data;</span><br><span class="line">cout &lt;&lt; ch;</span><br><span class="line">inorder(T-&gt;rchild);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void postorder(BinNode* T) &#123;</span><br><span class="line">if (T == NULL)return;</span><br><span class="line">postorder(T-&gt;lchild);</span><br><span class="line">postorder(T-&gt;rchild);</span><br><span class="line">char ch = T-&gt;data;</span><br><span class="line">cout &lt;&lt; ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>先序遍历的非递归版本（使用栈）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void preorderByStack(BinNode* T) &#123;</span><br><span class="line">stack&lt;BinNode*&gt; st;</span><br><span class="line">while (1) &#123;</span><br><span class="line">while (T != NULL) &#123;</span><br><span class="line">cout &lt;&lt; T-&gt;data ;// visit(T),先访问左孩子</span><br><span class="line">st.push(T-&gt;rchild);//右孩子入栈，NULL也入栈，有进行判断，不会访问NULL</span><br><span class="line">T = T-&gt;lchild;//T 继续指向下一个左孩子</span><br><span class="line">&#125;</span><br><span class="line">if (st.empty())break;//所有右孩子都访问完了，结束。栈底是最上面的右孩子（它最先入栈）</span><br><span class="line">T = st.top(); st.pop();//pop出栈顶的右孩子，对其进行遍历</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>中序遍历的非递归版本（使用栈）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void inorderByStack(BinNode* T) &#123;</span><br><span class="line">stack&lt;BinNode*&gt; st;</span><br><span class="line">while (1)</span><br><span class="line">&#123;</span><br><span class="line">while (T != NULL) &#123;</span><br><span class="line">st.push(T); T = T-&gt;lchild;//当跑到最左下方时，</span><br><span class="line">                                        //当前节点即是left root right 中的root节点，</span><br><span class="line">                                       //此时left相当于已经访问过，故接下来应该将控制权转给right</span><br><span class="line">&#125;</span><br><span class="line">if (!st.empty()) &#123;</span><br><span class="line">T = st.top(); st.pop();</span><br><span class="line">cout &lt;&lt; T-&gt;data;//visit();每个节点访问完后都会试图访问 以右孩子为根节点的树，</span><br><span class="line">                              //完了之后才会访问这个节点对应的父节点（即当前的栈顶）</span><br><span class="line">T = T-&gt;rchild;</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>层次遍历（使用队列）:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void cengciByQueue(BinNode* T) &#123;</span><br><span class="line">queue&lt;BinNode*&gt; q;</span><br><span class="line">q.push(T);//首先会push进根节点</span><br><span class="line">while (!q.empty()) &#123;</span><br><span class="line">T = q.front(); q.pop();</span><br><span class="line">cout &lt;&lt; T-&gt;data;//visit()</span><br><span class="line">if (T-&gt;lchild)q.push(T-&gt;lchild);</span><br><span class="line">if (T-&gt;rchild)q.push(T-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>给出一个字符串，可参考层次遍历的方法创建一棵树（使用队列）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void creatBTreeBycengci(string arr) &#123;//层次遍历产生一颗树，参考层次遍历</span><br><span class="line">int pos = 0;</span><br><span class="line">queue&lt;BinNode*&gt; q2;</span><br><span class="line">char data = arr[pos++];</span><br><span class="line">root = new BinNode(data);</span><br><span class="line"></span><br><span class="line">q2.push(root);</span><br><span class="line">BinNode* T = root;</span><br><span class="line">while (pos!=arr.length() ) &#123;</span><br><span class="line">T = q2.front(); q2.pop();</span><br><span class="line"></span><br><span class="line">data = arr[pos++];</span><br><span class="line">if (data != &apos;0&apos;)T-&gt;lchild = new BinNode(data);</span><br><span class="line">elseT-&gt;lchild = NULL;</span><br><span class="line">data = arr[pos++];</span><br><span class="line">if (data != &apos;0&apos;)T-&gt;rchild = new BinNode(data);</span><br><span class="line">elseT-&gt;rchild = NULL;</span><br><span class="line"></span><br><span class="line">if(T-&gt;lchild)q2.push(T-&gt;lchild);//存在才推进去</span><br><span class="line">if(T-&gt;rchild)q2.push(T-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      当初学二叉树的小笔记，除了常规的递归方法遍历二叉树外，还记录了先序、中序遍历的非递归版本
+    
+    </summary>
+    
+      <category term="数据结构" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://yoursite.com/2019/08/01/test/"/>
+    <id>http://yoursite.com/2019/08/01/test/</id>
+    <published>2019-08-01T07:55:54.000Z</published>
+    <updated>2019-08-01T07:56:55.811Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我是一级标题"><a href="#我是一级标题" class="headerlink" title="我是一级标题"></a>我是一级标题</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;我是一级标题&quot;&gt;&lt;a href=&quot;#我是一级标题&quot; class=&quot;headerlink&quot; title=&quot;我是一级标题&quot;&gt;&lt;/a&gt;我是一级标题&lt;/h1&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我的博文</title>
+    <link href="http://yoursite.com/2019/08/01/%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87/"/>
+    <id>http://yoursite.com/2019/08/01/我的博文/</id>
+    <published>2019-08-01T07:37:42.000Z</published>
+    <updated>2019-08-01T07:37:42.247Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexoblog1</title>
+    <link href="http://yoursite.com/2019/08/01/hexoblog1/"/>
+    <id>http://yoursite.com/2019/08/01/hexoblog1/</id>
+    <published>2019-08-01T07:14:43.000Z</published>
+    <updated>2019-08-01T07:54:13.171Z</updated>
+    
+    <content type="html"><![CDATA[<p>javascript是一门充满活力、简单易用的语言，又是一门具有许多复杂微妙技术的语言。即使是经验丰富的javascript开发者，如果没有认真学习的话，也无法真正理解它们，这就是javascript的矛盾之处。由于javascript不必理解就可以使用，因此通常来说很难真正理解语言本身，这就是我们面临的挑战。不满足于只是让代码正常工作，而是想要弄清楚为什么，勇于挑战这条崎岖颠簸的少有人走的路，拥抱整个javascript<br>后面的内容在首页不显示，只显示到这里</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;javascript是一门充满活力、简单易用的语言，又是一门具有许多复杂微妙技术的语言。即使是经验丰富的javascript开发者，如果没有认真学习的话，也无法真正理解它们，这就是javascript的矛盾之处。由于javascript不必理解就可以使用，因此通常来说很难真
+      
+    
+    </summary>
+    
+      <category term="博客相关" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="first" scheme="http://yoursite.com/tags/first/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/08/01/hello-world/"/>
+    <id>http://yoursite.com/2019/08/01/hello-world/</id>
+    <published>2019-08-01T07:00:26.338Z</published>
+    <updated>2019-08-01T07:00:26.338Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

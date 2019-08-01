@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[二叉树创建与遍历]]></title>
+    <url>%2F2019%2F08%2F01%2F%E4%BA%8C%E5%8F%89%E6%A0%91%E5%88%9B%E5%BB%BA%E4%B8%8E%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[节点定义：1234567891011121314151617181920class BinNode &#123;public: char data; BinNode* parent; BinNode* lchild; BinNode* rchild; BinNode()&#123; lchild = NULL; rchild = NULL; parent = NULL; &#125; BinNode(char data2):data(data2) &#123; lchild = NULL; rchild = NULL; parent = NULL; &#125; BinNode(char data2, BinNode* parent2):data(data2) &#123; lchild = NULL; rchild = NULL; parent = parent2; &#125; void insertAsLeft(char data) &#123; lchild = new BinNode(data,this); &#125; void insertAsRight( char data) &#123; rchild = new BinNode(data,this); &#125;&#125;; 树的定义：123456789101112131415161718192021class BinTree &#123;private: BinNode* root; string strtree;public: BinTree() &#123; root = NULL; &#125; BinNode* getRoot() &#123; return root; &#125;//获取根节点 void creatBTreeBycengci(string arr);//层次遍历产生一颗树，参考层次遍历 void creatBTreeByString(string str) ;//通过一个字符串创建一棵树，调用creatBTree BinNode* creatBTree(int&amp; pos);//通过先序遍历产生一棵树，使用递归 void preorder(BinNode* T) ;//先序遍历以T为根节点的子树，递归 void inorder(BinNode* T) ;//中序遍历以T为根节点的子树，递归 void postorder(BinNode* T) ;//后序遍历以T为根节点的字数，递归 void preorderByStack(BinNode* T);//先序遍历以T为根节点的子树，非递归 void inorderByStack(BinNode* T);//中序遍历以T为根节点的子树，非递归 void cengciByQueue(BinNode* T);//层次遍历，利用队列&#125; 以下是各种方法的实现:首先是通过一个字符串先序遍历创建一颗树 12345678910111213141516void creatBTreeByString(string str) &#123; int pos = 0; strtree.assign(str); root = creatBTree(pos);&#125;BinNode* creatBTree(int&amp; pos) &#123; BinNode* T; char ch = strtree[pos++]; if (ch == &apos;0&apos;) T = NULL; else &#123; T = new BinNode(ch); T-&gt;lchild = creatBTree(pos); T-&gt;rchild = creatBTree(pos); &#125; return T;&#125; 先序遍历、中序遍历、后序遍历的递归版本，此处无传如visit函数，只是访问节点的数据并输出： 12345678910111213141516171819202122void preorder(BinNode* T) &#123; if (T == NULL) return; char ch = T-&gt;data; cout &lt;&lt; ch; preorder(T-&gt;lchild); preorder(T-&gt;rchild); &#125; void inorder(BinNode* T) &#123;//中序遍历以T为根节点的子树 if (T == NULL) return; inorder(T-&gt;lchild); char ch = T-&gt;data; cout &lt;&lt; ch; inorder(T-&gt;rchild); &#125; void postorder(BinNode* T) &#123; if (T == NULL) return; postorder(T-&gt;lchild); postorder(T-&gt;rchild); char ch = T-&gt;data; cout &lt;&lt; ch; &#125; 先序遍历的非递归版本（使用栈）： 12345678910111213void preorderByStack(BinNode* T) &#123; stack&lt;BinNode*&gt; st; while (1) &#123; while (T != NULL) &#123; cout &lt;&lt; T-&gt;data ;// visit(T),先访问左孩子 st.push(T-&gt;rchild);//右孩子入栈，NULL也入栈，有进行判断，不会访问NULL T = T-&gt;lchild;//T 继续指向下一个左孩子 &#125; if (st.empty()) break;//所有右孩子都访问完了，结束。栈底是最上面的右孩子（它最先入栈） T = st.top(); st.pop();//pop出栈顶的右孩子，对其进行遍历 &#125; &#125; 中序遍历的非递归版本（使用栈）： 1234567891011121314151617181920void inorderByStack(BinNode* T) &#123; stack&lt;BinNode*&gt; st; while (1) &#123; while (T != NULL) &#123; st.push(T); T = T-&gt;lchild;//当跑到最左下方时， //当前节点即是left root right 中的root节点， //此时left相当于已经访问过，故接下来应该将控制权转给right &#125; if (!st.empty()) &#123; T = st.top(); st.pop(); cout &lt;&lt; T-&gt;data;//visit();每个节点访问完后都会试图访问 以右孩子为根节点的树， //完了之后才会访问这个节点对应的父节点（即当前的栈顶） T = T-&gt;rchild; &#125; else &#123; break; &#125; &#125;&#125; 层次遍历（使用队列）: 1234567891011 void cengciByQueue(BinNode* T) &#123; queue&lt;BinNode*&gt; q; q.push(T);//首先会push进根节点 while (!q.empty()) &#123; T = q.front(); q.pop(); cout &lt;&lt; T-&gt;data;//visit() if (T-&gt;lchild) q.push(T-&gt;lchild); if (T-&gt;rchild) q.push(T-&gt;rchild); &#125; &#125;&#125;; 给出一个字符串，可参考层次遍历的方法创建一棵树（使用队列）： 1234567891011121314151617181920212223void creatBTreeBycengci(string arr) &#123;//层次遍历产生一颗树，参考层次遍历 int pos = 0; queue&lt;BinNode*&gt; q2; char data = arr[pos++]; root = new BinNode(data); q2.push(root); BinNode* T = root; while (pos!=arr.length() ) &#123; T = q2.front(); q2.pop(); data = arr[pos++]; if (data != &apos;0&apos;) T-&gt;lchild = new BinNode(data); else T-&gt;lchild = NULL; data = arr[pos++]; if (data != &apos;0&apos;) T-&gt;rchild = new BinNode(data); else T-&gt;rchild = NULL; if(T-&gt;lchild) q2.push(T-&gt;lchild);//存在才推进去 if(T-&gt;rchild) q2.push(T-&gt;rchild); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2019%2F08%2F01%2Ftest%2F</url>
+    <content type="text"><![CDATA[我是一级标题]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[我的博文]]></title>
+    <url>%2F2019%2F08%2F01%2F%E6%88%91%E7%9A%84%E5%8D%9A%E6%96%87%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[hexoblog1]]></title>
+    <url>%2F2019%2F08%2F01%2Fhexoblog1%2F</url>
+    <content type="text"><![CDATA[javascript是一门充满活力、简单易用的语言，又是一门具有许多复杂微妙技术的语言。即使是经验丰富的javascript开发者，如果没有认真学习的话，也无法真正理解它们，这就是javascript的矛盾之处。由于javascript不必理解就可以使用，因此通常来说很难真正理解语言本身，这就是我们面临的挑战。不满足于只是让代码正常工作，而是想要弄清楚为什么，勇于挑战这条崎岖颠簸的少有人走的路，拥抱整个javascript后面的内容在首页不显示，只显示到这里]]></content>
+      <categories>
+        <category>博客相关</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>first</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F08%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>

@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="docker,">
 
 
 
@@ -103,21 +103,18 @@
 
 
 
-<meta name="description" content="rebase的基本使用rebase 粗糙地翻译一下就是变基，通过rebase可以将一个分支更换到一个指定的分支中 合并多个commit在项目中，提交代码到远程仓库的时候，一个feature最好对应一个commit，而在本地开发的时候可能会存在一些修改，因此在最后提交代码之前最好要将多个commit合并成一个commit，这样远程仓库的分支就可以更加清晰。   git rebase -i HEAD~">
-<meta name="keywords" content="git">
+<meta name="description" content="学习docker记录的一些笔记">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git实践中rebase的使用">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/git实践中rebase的使用/index.html">
+<meta property="og:title" content="Docker 常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/Docker 常用命令/index.html">
 <meta property="og:site_name" content="Yetx&#39;s Blog">
-<meta property="og:description" content="rebase的基本使用rebase 粗糙地翻译一下就是变基，通过rebase可以将一个分支更换到一个指定的分支中 合并多个commit在项目中，提交代码到远程仓库的时候，一个feature最好对应一个commit，而在本地开发的时候可能会存在一些修改，因此在最后提交代码之前最好要将多个commit合并成一个commit，这样远程仓库的分支就可以更加清晰。   git rebase -i HEAD~">
+<meta property="og:description" content="学习docker记录的一些笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13526931-c3a1ee35096ef9ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13526931-9ab709803ca05345.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-01T15:59:24.213Z">
+<meta property="og:updated_time" content="2019-10-11T04:41:33.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git实践中rebase的使用">
-<meta name="twitter:description" content="rebase的基本使用rebase 粗糙地翻译一下就是变基，通过rebase可以将一个分支更换到一个指定的分支中 合并多个commit在项目中，提交代码到远程仓库的时候，一个feature最好对应一个commit，而在本地开发的时候可能会存在一些修改，因此在最后提交代码之前最好要将多个commit合并成一个commit，这样远程仓库的分支就可以更加清晰。   git rebase -i HEAD~">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13526931-c3a1ee35096ef9ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Docker 常用命令">
+<meta name="twitter:description" content="学习docker记录的一些笔记">
 
 
 
@@ -147,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/01/git实践中rebase的使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/11/Docker 常用命令/">
 
 
 
 
 
-  <title>git实践中rebase的使用 | Yetx's Blog</title>
+  <title>Docker 常用命令 | Yetx's Blog</title>
   
 
 
@@ -312,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/git实践中rebase的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/Docker 常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yetx">
@@ -329,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git实践中rebase的使用</h1>
+          <h1 class="post-title" itemprop="name headline">Docker 常用命令</h1>
         
 
         <div class="post-meta">
@@ -341,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-01T23:01:15+08:00">
-                2019-09-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-11T12:40:30+08:00">
+                2019-10-11
               </time>
             
 
@@ -364,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -395,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.6k
                 </span>
               
 
@@ -405,6 +402,10 @@
             </div>
           
 
+          
+              <div class="post-description">
+                  学习docker记录的一些笔记
+              </div>
           
 
         </div>
@@ -420,44 +421,156 @@
       
 
       
-        <h1 id="rebase的基本使用"><a href="#rebase的基本使用" class="headerlink" title="rebase的基本使用"></a>rebase的基本使用</h1><p>rebase 粗糙地翻译一下就是变基，通过rebase可以将一个分支更换到一个指定的分支中</p>
-<h2 id="合并多个commit"><a href="#合并多个commit" class="headerlink" title="合并多个commit"></a>合并多个commit</h2><p>在项目中，提交代码到远程仓库的时候，一个feature最好对应一个commit，而在本地开发的时候可能会存在一些修改，因此在最后提交代码之前最好要将多个commit合并成一个commit，这样远程仓库的分支就可以更加清晰。  </p>
-<p><code>git rebase -i HEAD~4</code> 这条命令代表合并前4个commit    </p>
-<p>接下来会弹出一个交互界面，从上到下是旧到新的commit排序，</p>
-<blockquote>
-<p>pick：保留该commit（缩写:p）  </p>
-<p>reword：保留该commit，但我需要修改该commit的注释（缩写:r）  </p>
-<p>edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）</p>
-<p>squash：将该commit和前一个commit合并（缩写:s）</p>
-<p>fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）</p>
-<p>exec：执行shell命令（缩写:x）</p>
-<p>drop：我要丢弃该commit（缩写:d）  </p>
-</blockquote>
-<p>在压缩commit中，可以pick第一个commit（最早的）,其中均为squash，则可以将后续提交合并到最早的commit中  </p>
-<p>在rebase过程中，如果出现冲突，在解决完冲突后，<code>git add .</code>后<code>git rebase --continue</code>则可以让rebase继续进行，如果前面出现一些差错，则可以使用<code>git rebase --abort</code>进行取消前面rebase后所有的操作，最后就可以得到一个好看的分支了。</p>
-<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><p>在工作中，会多个人共同开发一个分支，如develop分支（多人开发其它feature分支也类似），个人在实际开发的时候自然地会checkout出一个自己的分支出来，但是多人开发难免出现别人开发完成一个功能后被合并进develop分支，因此本地需要保持对远程develop的同步，以便（使得本地 develop 分支）拿到最新变更。<br>使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop</span><br><span class="line">git pull（其实这里pull会产生merge，因此可以尝试使用git pull --rebase）</span><br></pre></td></tr></table></figure>
+        <h1 id="Docker-常用命令"><a href="#Docker-常用命令" class="headerlink" title="Docker 常用命令"></a>Docker 常用命令</h1><h2 id="Docker镜像相关"><a href="#Docker镜像相关" class="headerlink" title="Docker镜像相关"></a>Docker镜像相关</h2><h3 id="Docker镜像相关命令"><a href="#Docker镜像相关命令" class="headerlink" title="Docker镜像相关命令"></a>Docker镜像相关命令</h3><ul>
+<li><p>获取镜像: docker pull</p>
+<p>从 Docker 镜像仓库获取镜像的命令是 <code>docker pull</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]</span><br><span class="line"></span><br><span class="line">$ docker pull ubuntu:18.04</span><br></pre></td></tr></table></figure>
 
-<p>保持更新会给我们一个在本地机器上解决冲突的机会。这比（不同步更新就进行下一步的变基操作并且）发起一个与远程仓库冲突的合并请求要好。  </p>
-<p>接下来（切换至功能分支并且）通过交互式变基从您的develop分支中获取最新的代码提交，以更新功能分支。以下命令能够让我们的分支获取到最新的代码并且不会像merge的分支图那样两个分支产生一个交点，而是会将我们的分支放到develop的下一个commit上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branchname&gt;</span><br><span class="line">git rebase -i --autosquash develop</span><br></pre></td></tr></table></figure>
 
-<p>–autosquash 将所有提交压缩到单个提交。没有人会愿意（看到） develop 分支中的单个功能开发就占据如此多的提交历史,这就是前面说到的合并多个commit。</p>
-<p>在想提交个人的分支时，按照上面的流程，先pull再rebase解决完冲突再push上去，不然可能出现你提交上去的时候分支又更新了，然后PR中就产生了冲突，因此这么做能够保证我们提交到远程的代码没有冲突。</p>
-<p>推送个人的（功能）分支时，如果在这之前没有push过自己的分支，则可以直接git push推送上去。但如果之前已经提交过该分支，由于变基操作会改变提交历史, 所以必须使用 -f 强制推送到远程（功能）分支。</p>
-<p>如果是一个人在开发这个分支还好，多个人开发的话就会覆盖掉别人这个分支上的代码，全部变成你自己的代码了。如果其他人与您在该分支上进行协同开发，请使用破坏性没那么强的 –force-with-lease 参数。</p>
-<h2 id="merge-和rebase的区别"><a href="#merge-和rebase的区别" class="headerlink" title="merge 和rebase的区别"></a>merge 和rebase的区别</h2><p>假如你和你的同事John都工作在一个feature开发上，你和他分别做了一些commit，随后你fetch了John的feature分支（或者已经被John分享到中央库的feature分支），那么你的repo的版本历史可能已经是下面的样子了：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/13526931-c3a1ee35096ef9ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">  </p>
-<p>John的commit可能完成了一些bugfix，这时你希望集成John的feature开发工作，你也有两个选择，要么merge,要么rebase,</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/13526931-9ab709803ca05345.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">  </p>
-<p><strong>rebase黄金定律：</strong><br>永远不要rebase一个已经分享的分支（到非remote分支，比如rebase到master,develop,release分支上），也就是说永远不要rebase一个已经在中央库中存在的分支.只能rebase你自己使用的私有分支  </p>
-<p>在上面的操作中，只有你的local本地私有（还未push的） feature commits被移动和重写历史了，而你的本地commit之前的所有commit都未做改变。这就像是说“把我的改动放到John的工作之上”。在大多数情况下，这种rebase比用merge要好很多</p>
-<p>结论：只要你的分支上需要rebase的所有commits历史还没有被push过(比如上例中rebase时从分叉处开始有两个commit历史会被重写)，就可以安全地使用git rebase来操作。<br>上述结论可能还需要修正：对于不再有子分支的branch，并且因为rebase而会被重写的commits都还没有push分享过，可以比较安全地做rebase</p>
-<p>关于什么时候使用merge，什么时候使用rebase，可以参考下面这篇博文<br><a href="https://www.cnblogs.com/kidsitcn/p/5339382.html" target="_blank" rel="noopener">git rebase vs git merge详解</a>. </p>
-<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><p><a href="https://juejin.im/entry/5ae9706d51882567327809d0#comment" target="_blank" rel="noopener">使用git rebase合并多次commit</a>  </p>
-<p><a href="http://jartto.wang/2018/12/11/git-rebase/" target="_blank" rel="noopener">彻底搞懂Git-Rebase</a>  </p>
-<p><a href="https://www.cnblogs.com/kidsitcn/p/5339382.html" target="_blank" rel="noopener">git rebase vs git merge详解</a></p>
 
+</li>
+</ul>
+<p>  Docker 镜像仓库地址：地址的格式一般是 <code>&lt;域名/IP&gt;[:端口号]</code>。默认地址是 Docker Hub。</p>
+<p>  仓库名是两段式名称，即 <code>&lt;用户名&gt;/&lt;软件名&gt;</code>。对于 Docker Hub，如果不给出用户名，则默认为 <code>library</code>，也就是官方镜像。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull ubuntu:18.04</span><br></pre></td></tr></table></figure>
+
+
+
+<p>  将会获取官方镜像 <code>library/ubuntu</code> 仓库中标签为 <code>18.04</code> 的镜像。</p>
+<p>  <strong>关于Docker Registry:</strong></p>
+<p>  一个 <strong>Docker Registry</strong> 中可以包含多个 <strong>仓库</strong>（<code>Repository</code>）；每个仓库可以包含多个 <strong>标签</strong>（<code>Tag</code>）；每个标签对应一个镜像。通过 <code>&lt;仓库名&gt;:&lt;标签&gt;</code> 的格式来指定具体是这个软件哪个版本的镜像。如果不给出标签，将以 <code>latest</code> 作为默认标签。</p>
+<ul>
+<li><p>列出镜像: docker image ls</p>
+</li>
+<li><p>删除镜像：docker image rm</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image rm [选项] &lt;镜像1&gt; [&lt;镜像2&gt; ...]</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>&lt;镜像&gt;</code> 可以是 <code>镜像短 ID</code>、<code>镜像长 ID</code>、<code>镜像名</code> 或者 <code>镜像摘要</code>。</p>
+<h3 id="构建镜像-DockerFile"><a href="#构建镜像-DockerFile" class="headerlink" title="构建镜像: DockerFile"></a>构建镜像: DockerFile</h3><h4 id="docker-build-构建镜像"><a href="#docker-build-构建镜像" class="headerlink" title="docker build 构建镜像"></a>docker build 构建镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build [选项] &lt;上下文路径/URL/-&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t nginx:v3 .</span><br></pre></td></tr></table></figure>
+
+<p>其中 -t 标记来添加 tag，指定新的镜像的用户信息。 “.” 是 Dockerfile 所在的路径（当前目录），也可以 替换为一个具体的 Dockerfile 的路径。</p>
+<p>Dockfile 中的指令被一条一条的执行。每一步都创建了一个新的容器，在 容器中执行指令并提交修改（就跟之前介绍过的 docker commit 一样）。当所有的指令都执行完毕之 后，返回了最终的镜像 id。所有的中间步骤所产生的容器都被删除和清理了。</p>
+<ul>
+<li><p>FROM 指定基础镜像</p>
+</li>
+<li><p>RUN 执行命令</p>
+<p> <code>RUN</code> 指令是用来执行命令行命令的</p>
+<ol>
+<li><em>shell</em> 格式：<code>RUN &lt;命令&gt;</code>，就像直接在命令行中输入的命令一样。刚才写的 Dockerfile 中的 <code>RUN</code> 指令就是这种格式。</li>
+</ol>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'&lt;h1&gt;Hello, Docker!&lt;/h1&gt;'</span> &gt; /usr/share/nginx/html/index.html</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>exec* 格式：<code>RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]</code>，这更像是函数调用中的格式。</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>FROM</p>
+<p>设置要制作的镜像基于哪个镜像，FROM指令必须是整个Dockerfile的第一个指令，如果指定的镜像不存在默认会自动从Docker Hub上下载。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> &lt;image&gt;[:&lt;tag&gt;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>RUN </p>
+<p>RUN指令会在一个新的容器中执行任何命令，然后把执行后的改变提交到当前镜像，提交后的镜像会被用于Dockerfile中定义的下一步操作，RUN中定义的命令会按顺序执行并提交，这正是Docker廉价的提交和可以基于镜像的任何一个历史点创建容器的好处，就像版本控制工具一样。</p>
+<p>*<em>注意: *</em></p>
+<p>Dockerfile 中每一个指令都会建立一层，<code>RUN</code> 也不例外。每一个 <code>RUN</code> 的行为，就和刚才我们手工建立镜像的过程一样：新建立一层，在其上执行这些命令，执行结束后，<code>commit</code> 这一层的修改，构成新的镜像。</p>
+<p>应该使用 <code>&amp;&amp;</code> 将各个所需命令串联起来，Dockerfile 支持 Shell 类的行尾添加 <code>\</code> 的命令换行方式，以及行首 <code>#</code> 进行注释的格式。良好的格式，比如换行、缩进、注释等，会让维护、排障更为容易，这是一个比较好的习惯。</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> &lt;<span class="built_in">command</span>&gt; <span class="comment">#将会调用/bin/sh -c &lt;command&gt;</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> [<span class="string">"executable"</span>, <span class="string">"param1"</span>, <span class="string">"param2"</span>]   <span class="comment">#将会调用exec执行，以避免有些时候shell方式执行时的传递参数问题，而且有些基础镜像可能不包含/bin/sh</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>CMD</p>
+<p>CMD指令中指定的命令会在镜像运行时执行，在Dockerfile中只能存在一个，如果使用了多个CMD指令，则只有最后一个CMD指令有效。当出现ENTRYPOINT指令时，CMD中定义的内容会作为ENTRYPOINT指令的默认参数，也就是说可以使用CMD指令给ENTRYPOINT传递参数。<br> 注意：RUN和CMD都是执行命令，他们的差异在于RUN中定义的命令会在执行docker build命令创建镜像时执行，而CMD中定义的命令会在执行docker run命令运行镜像时执行，另外使用第一种语法也就是调用exec执行时，命令必须为绝对路径</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"executable"</span>, <span class="string">"param1"</span>, <span class="string">"param2"</span>]    <span class="comment">#将会调用exec执行，首选方式</span></span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">"param1"</span>, <span class="string">"param2"</span>]        <span class="comment">#当使用ENTRYPOINT指令时，为该指令传递默认参数</span></span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> &lt;<span class="built_in">command</span>&gt; [ &lt;param1&gt;|&lt;param2&gt; ]        <span class="comment">#将会调用/bin/sh -c执行CMD</span></span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="Docker容器相关"><a href="#Docker容器相关" class="headerlink" title="Docker容器相关"></a>Docker容器相关</h2><h3 id="Docker容器相关命令"><a href="#Docker容器相关命令" class="headerlink" title="Docker容器相关命令"></a>Docker容器相关命令</h3><p>镜像（<code>Image</code>）和容器（<code>Container</code>）的关系，就像是面向对象程序设计中的 <code>类</code> 和 <code>实例</code> 一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+<ul>
+<li><p>启动容器：docker run</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ docker run ubuntu:18.04 /bin/<span class="built_in">echo</span> <span class="string">'Hello world'</span></span><br><span class="line">Hello world</span><br><span class="line"></span><br><span class="line">$ docker run -t -i ubuntu:18.04 /bin/bash</span><br><span class="line"></span><br><span class="line">$ docker container start <span class="comment">#启动已存在的容器</span></span><br><span class="line">$ docker container restart <span class="comment">#将一个运行态的容器终止，然后再重新启动它</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>-t</code> 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上， <code>-i</code> 则让容器的标准输入保持打开。</p>
+<p>更多的时候，需要让 Docker 在后台运行而不是直接把执行命令的结果输出在当前宿主机下。此时，可以通过添加 <code>-d</code> 参数来实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d ubuntu:18.04 /bin/sh -c <span class="string">"while true; do echo hello world; sleep 1; done"</span></span><br><span class="line">77b2dc01fe0f3f1265df143181e7b9af5e05279a884f4776ee75350ea9d8017a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看容器信息：docker container ls</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ docker container ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看终止状态的容器</span></span><br><span class="line">$ docker container ls -a </span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取容器的输出信息</span></span><br><span class="line">$ docker container logs [container ID or NAMES]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>终止容器：docker container stop</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker container stop [container ID or NAMES]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> -i 69d1 bash</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>删除容器：docker container rm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker container rm  [container ID or NAMES]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看容器运行状态：docker ps </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps [OPTIONS]</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"><strong>名称, 简写</strong></th>
+<th align="left"><strong>默认</strong></th>
+<th align="left"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">–all, -a</td>
+<td align="left">false</td>
+<td align="left">Show all containers (default shows just running)</td>
+</tr>
+<tr>
+<td align="left">–filter, -f</td>
+<td align="left"></td>
+<td align="left">Filter output based on conditions provided</td>
+</tr>
+<tr>
+<td align="left">–format</td>
+<td align="left"></td>
+<td align="left">Pretty-print containers using a Go template</td>
+</tr>
+<tr>
+<td align="left">–last, -n</td>
+<td align="left">-1</td>
+<td align="left">Show n last created containers (includes all states)</td>
+</tr>
+<tr>
+<td align="left">–latest, -l</td>
+<td align="left">false</td>
+<td align="left">Show the latest created container (includes all states)</td>
+</tr>
+<tr>
+<td align="left">–no-trunc</td>
+<td align="left">false</td>
+<td align="left">Don’t truncate output</td>
+</tr>
+<tr>
+<td align="left">–quiet, -q</td>
+<td align="left">false</td>
+<td align="left">Only display numeric IDs</td>
+</tr>
+<tr>
+<td align="left">–size, -s</td>
+<td align="left">false</td>
+<td align="left">Display total file sizes</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2>
       
     </div>
     
@@ -474,7 +587,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
           
         </div>
       
@@ -487,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/Git使用常用命令/" rel="next" title="Git使用常用命令">
-                <i class="fa fa-chevron-left"></i> Git使用常用命令
+              <a href="/2019/09/01/git实践中rebase的使用/" rel="next" title="git实践中rebase的使用">
+                <i class="fa fa-chevron-left"></i> git实践中rebase的使用
               </a>
             
           </div>
@@ -496,10 +609,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/11/Docker 常用命令/" rel="prev" title="Docker 常用命令">
-                Docker 常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -645,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rebase的基本使用"><span class="nav-number">1.</span> <span class="nav-text">rebase的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#合并多个commit"><span class="nav-number">1.1.</span> <span class="nav-text">合并多个commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并分支"><span class="nav-number">1.2.</span> <span class="nav-text">合并分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge-和rebase的区别"><span class="nav-number">1.3.</span> <span class="nav-text">merge 和rebase的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">2.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-常用命令"><span class="nav-number">1.</span> <span class="nav-text">Docker 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker镜像相关"><span class="nav-number">1.1.</span> <span class="nav-text">Docker镜像相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker镜像相关命令"><span class="nav-number">1.1.1.</span> <span class="nav-text">Docker镜像相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建镜像-DockerFile"><span class="nav-number">1.1.2.</span> <span class="nav-text">构建镜像: DockerFile</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-build-构建镜像"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">docker build 构建镜像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker容器相关"><span class="nav-number">1.2.</span> <span class="nav-text">Docker容器相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker容器相关命令"><span class="nav-number">1.2.1.</span> <span class="nav-text">Docker容器相关命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">1.3.</span> <span class="nav-text">未完待续</span></a></li></ol></li></ol></div>
             
 
           </div>
